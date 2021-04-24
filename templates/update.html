@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+<h1 align="center">
+    Update User information
+</h1>
+    <form action="/update/{{user.id}}" method="POST" align="center">
+        <br><br>
+        <p>Enter the user details</p>
+        <input type="text" id="company_name" name="company_name" value="{{user.company_name}}"><br><br>
+        <input type="text" id="first_name" name="first_name" value="{{user.First_Name}}"><br><br>
+        <input type="text" id="last_name" name="last_name" value="{{user.Last_name}}"><br><br>
+        <input type="Integer" id="Phone" name="Phone" value="{{user.Phone}}"><br><br>
+        <input type="text" id="Email" name="Email" value="{{user.Email}}"><br><br>
+        <input type="text" id="Address" name="Address" value="{{user.Address}}"><br><br>
+        <input type="text" id="City" name="City" value="{{user.City}}"><br><br>
+        <input type="text" id="District" name="District" value="{{user.District}}"><br><br>
+        <input type="text" id="State" name="State" value="{{user.State}}"><br><br>
+        <input type="text" id="pincode" name="pincode" value="{{user.Pincode}}"><br><br>
+        <input type="text" id="gstin" name="gstin" value="{{user.gstin}}"><br><br>
+        <input type="text" id="pwd" name="pwd" value="{{user.pwd}}"><br><br>
+        <input type="submit" value="Add Details">
+    </form>
+
+</div>
+{% endblock %}

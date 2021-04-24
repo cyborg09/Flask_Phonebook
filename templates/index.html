@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+<h1 align="center">
+    User information
+</h1>
+    {% if users|length < 1 %}
+    <h4 style="text-align: center">There are no task! Create one</h4>
+    {% else %}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Company Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>District</th>
+        <th>State</th>
+        <th>Pincode</th>
+        <th>GSTIN</th>
+        <th>Pwd</th>
+        <th>Actions</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.company_name }}</td>
+        <td>{{ user.First_Name }}</td>
+        <td>{{ user.Last_name }}</td>
+        <td>{{ user.Phone }}</td>
+        <td>{{ user.Email }}</td>
+        <td>{{ user.Address }}</td>
+        <td>{{ user.City }}</td>
+        <td>{{ user.District }}</td>
+        <td>{{ user.State }}</td>
+        <td>{{ user.Pincode }}</td>
+        <td>{{ user.gstin }}</td>
+        <td>{{ user.pwd }}</td>
+        <td>
+            <a href="/update/{{user.id}}">Update</a>
+            <a href="/delete/{{user.id}}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+     {% endif %}
+    <form action="/" method="POST" align="center">
+        <br><br>
+        <p>Enter the user details</p>
+        <input type="text" id="company_name" name="company_name" placeholder="company_name"><br><br>
+        <input type="text" id="first_name" name="first_name" placeholder="first_name"><br><br>
+        <input type="text" id="last_name" name="last_name" placeholder="last_name"><br><br>
+        <input type="Integer" id="Phone" name="Phone" placeholder="Phone"><br><br>
+        <input type="text" id="Email" name="Email" placeholder="Email"><br><br>
+        <input type="text" id="Address" name="Address" placeholder="Address"><br><br>
+        <input type="text" id="City" name="City" placeholder="City"><br><br>
+        <input type="text" id="District" name="District" placeholder="District"><br><br>
+        <input type="text" id="State" name="State" placeholder="State"><br><br>
+        <input type="text" id="pincode" name="pincode" placeholder="pincode"><br><br>
+        <input type="text" id="gstin" name="gstin" placeholder="gstin"><br><br>
+        <input type="text" id="pwd" name="pwd" placeholder="pwd"><br><br>
+        <input type="submit" value="Add Details">
+    </form>
+
+</div>
+{% endblock %}
