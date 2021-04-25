@@ -6,27 +6,62 @@
 
 
 {% block body %}
-<div class="content">
-<h1 align="center">
+<h5 align="center">
     Update User information
-</h1>
-    <form action="/update/{{user.id}}" method="POST" align="center">
-        <br><br>
-        <p>Enter the user details</p>
-        <input type="text" id="company_name" name="company_name" value="{{user.company_name}}"><br><br>
-        <input type="text" id="first_name" name="first_name" value="{{user.First_Name}}"><br><br>
-        <input type="text" id="last_name" name="last_name" value="{{user.Last_name}}"><br><br>
-        <input type="Integer" id="Phone" name="Phone" value="{{user.Phone}}"><br><br>
-        <input type="text" id="Email" name="Email" value="{{user.Email}}"><br><br>
-        <input type="text" id="Address" name="Address" value="{{user.Address}}"><br><br>
-        <input type="text" id="City" name="City" value="{{user.City}}"><br><br>
-        <input type="text" id="District" name="District" value="{{user.District}}"><br><br>
-        <input type="text" id="State" name="State" value="{{user.State}}"><br><br>
-        <input type="text" id="pincode" name="pincode" value="{{user.Pincode}}"><br><br>
-        <input type="text" id="gstin" name="gstin" value="{{user.gstin}}"><br><br>
-        <input type="text" id="pwd" name="pwd" value="{{user.pwd}}"><br><br>
-        <input type="submit" value="Add Details">
+</h5>
+<div class=" p-3 col-6 col-md-6 ">
+    <form action="/update/{{user.id}}" method="POST" class="row g-3 align-items-center">
+        <div class="mb-3">
+            <label class="form-label">Company Name</label>
+            <input class="form-control" type="text" value="{{user.company_name}}" id="company_name" name="company_name" placeholder="company_name" required><br>
+        <div class="row g-3">
+        <div class="col">
+              <label class="form-label">First Name</label>
+            <input type="text" class="form-control" value="{{user.First_Name}}" id="first_name" name="first_name" placeholder="First name" aria-label="First name">
+        </div>
+        <div class="col">
+              <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" value="{{user.Last_name}}" id="last_name" name="last_name" placeholder="Last name" aria-label="Last name">
+        </div>
+        </div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" value="{{user.Phone}}" id="Phone" name="Phone">
+        </div>
+        <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" value="{{user.Email}}" id="Email" name="Email">
+        </div>
+        <div class="col-8">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" value="{{user.Address}}" id="Address" name="Address" placeholder="1234 Main St">
+        </div>
+        <div class="col-4">
+            <label for="inputDistrict" class="form-label">City</label>
+            <input type="text" class="form-control" value="{{user.City}}" id="City" name="City" placeholder="Gangavathi">
+        </div>
+       <div class="col-md-4">
+        <label for="inputCity" class="form-label">District</label>
+        <input type="text" class="form-control" value="{{user.District}}" id="District" name="District">
+      </div>
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">State</label>
+        <input type="text" class="form-control" value="{{user.State}}" id="State" name="State">
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="number" class="form-control" value="{{user.pincode}}" id="pincode" name="pincode">
+      </div>
+      <div class="col-md-6">
+        <label for="inputGst" class="form-label">GST-IN</label>
+        <input type="number" class="form-control" value="{{user.gstin}}" id="gstin" name="gstin">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPwd" class="form-label">PWD</label>
+        <input type="text" class="form-control" value="{{user.pwd}}" id="pwd" name="pwd">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Details</button>
     </form>
-
 </div>
 {% endblock %}

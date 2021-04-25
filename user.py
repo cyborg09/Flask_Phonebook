@@ -47,7 +47,7 @@ def insert():
             db.session.commit()
             return redirect('/')
         except:
-            return "There was an issue"
+            return "There was an issue in insertion"
     else:
         return render_template('insert.html')
 
@@ -64,7 +64,7 @@ def delete(id):
         db.session.commit()
         return redirect('/')
     except:
-        return "There was an error"
+        return "There was an error in deletion"
 
 @app.route('/update/<int:id>',methods=['GET','POST'])
 def update(id):
@@ -86,7 +86,7 @@ def update(id):
             db.session.commit()
             return redirect('/')
         except:
-            return "There was an issue"
+            return "There was an issue in Insertion"
     else:
         return render_template('update.html',user=user)
 
