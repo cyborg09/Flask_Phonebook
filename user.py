@@ -5,7 +5,7 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.secret_key = 'random string'
-#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
@@ -26,10 +26,8 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.id
 
-@app.route('/', methods=['POST','GET'])
-def index():
-    #data = pd.DataFrame(pd.read_excel("User_details.xlsx"))
-    #html = data.to_html(classes='table table-striped')
+@app.route('/insert', methods=['POST','GET'])
+def insert():
     if request.method == 'POST':
         com_name = request.form['company_name']
         fname = request.form['first_name']
@@ -51,6 +49,10 @@ def index():
         except:
             return "There was an issue"
     else:
+        return render_template('insert.html')
+
+@app.route('/',methods=['GET'])
+def index():
         users = User.query.order_by(User.id).all()
         return render_template('index.html',users=users)
 

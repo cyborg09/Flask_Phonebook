@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+<h5 align="center">
+    Enter User information
+</h5>
+    </div>
+    <form action="/insert" method="POST" class="row g-3">
+        <div class="mb-3">
+        <input class="form-control" type="text" id="company_name" name="company_name" placeholder="company_name" required><br>
+        <div class="row g-3">
+          <div class="col">
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First name" aria-label="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last name" aria-label="Last name">
+          </div>
+        </div>
+            <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="Phone" name="Phone">
+        </div>
+        <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email">
+        </div>
+        </div>
+        <input class="form-control" type="text" id="Address" name="Address" placeholder="Address"><br>
+        <input class="form-control" type="text" id="City" name="City" placeholder="City"><br>
+        <input class="form-control" type="text" id="District" name="District" placeholder="District"><br>
+        <input class="form-control" type="text" id="State" name="State" placeholder="State"><br>
+        <input class="form-control" type="number" id="pincode" name="pincode" placeholder="pincode"><br>
+        <input class="form-control" type="text" id="gstin" name="gstin" placeholder="gstin" required><br>
+        <input class="form-control" type="text" id="pwd" name="pwd" placeholder="pwd" ><br>
+        <button type="submit" class="btn btn-primary">Add Details</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
