@@ -33,3 +33,6 @@ td {
 #content {
     width: 70%;
 }
+.navbar-expand-md .navbar-toggler {
+    display: block !important;
+    }

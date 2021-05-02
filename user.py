@@ -51,8 +51,13 @@ def insert():
     else:
         return render_template('insert.html')
 
-@app.route('/',methods=['GET'])
+@app.route('/',methods=['GET','POST'])
 def index():
+    if request.method == "POST":
+        search = request.form['search']
+        users = User.query.filter_by(company_name=search).all()
+        return render_template('index.html', users=users)
+    else:
         users = User.query.order_by(User.id).all()
         return render_template('index.html',users=users)
 
