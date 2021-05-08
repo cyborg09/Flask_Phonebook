@@ -51,8 +51,12 @@
         <td>{{ user.gstin }}</td>
         <td>{{ user.pwd }}</td>
         <td>
-            <a class="btn btn-outline-info btn-sm" href="/update/{{user.id}}">Update</a><br>
-            <a class="btn btn-outline-info btn-sm" href="/delete/{{user.id}}">Delete</a>
+            <div class="btn-group mr-3" role="group" aria-label="Basic example">
+            <a class="btn btn-outline-dark btn-sm " type="button" href="/update/{{user.id}}">Update</a><br>
+                </div>
+            <div class="btn-group mr-3" role="group" aria-label="Basic example">
+            <a class="btn btn-outline-dark btn-sm " type="button" href="/delete/{{user.id}}">Delete</a>
+            </div>
         </td>
     </tr>
     {% endfor %}

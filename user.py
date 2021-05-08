@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 import pandas as pd
 from datetime import datetime
 app = Flask(__name__)
@@ -55,7 +56,7 @@ def insert():
 def index():
     if request.method == "POST":
         search = request.form['search']
-        users = User.query.filter_by(company_name=search).all()
+        users = User.query.filter(func.lower(User.company_name)==func.lower(search)).all()
         return render_template('index.html', users=users)
     else:
         users = User.query.order_by(User.id).all()
@@ -95,6 +96,9 @@ def update(id):
     else:
         return render_template('update.html',user=user)
 
+
+#Trellio
+#FfyKTmifDB7AtGZ_ja9vkcilWr7ddylFstZPIsbD
 
 if __name__ == "__main__":
     app.run(debug=True)
