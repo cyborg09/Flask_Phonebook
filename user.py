@@ -100,5 +100,5 @@ def update(id):
 #Trellio
 #FfyKTmifDB7AtGZ_ja9vkcilWr7ddylFstZPIsbD
 
-if __name__ == "__main__":q
+if __name__ == "__main__":
     app.run(debug=True)
